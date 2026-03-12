@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://b8t5isb6ryr8r"]
 
+[ext_resource type="Script" uid="uid://bxqgqymex14mt" path="res://prototype.gd" id="1_883nb"]
 [ext_resource type="Script" uid="uid://8ta1qhmv34ii" path="res://zones.gd" id="1_gxbh7"]
+[ext_resource type="Script" uid="uid://cow3pyybfi0o0" path="res://controller.gd" id="2_vo8sw"]
+[ext_resource type="ArrayMesh" uid="uid://t0i4o0fff6fv" path="res://The_One_Ring_Obj.obj" id="4_7fmhn"]
+[ext_resource type="Script" uid="uid://dmhcgqh4no5lg" path="res://button.gd" id="5_mbk3n"]
+[ext_resource type="Script" uid="uid://b3tmudmy0yu6n" path="res://label.gd" id="6_1ixuk"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gxbh7"]
 
@@ -18,7 +23,10 @@ background_mode = 2
 sky = SubResource("Sky_vo8sw")
 tonemap_mode = 2
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gxbh7"]
+
 [node name="prototype" type="Node" unique_id=1641901489]
+script = ExtResource("1_883nb")
 
 [node name="ui" type="Node" parent="." unique_id=1670755777]
 
@@ -61,7 +69,7 @@ size_flags_vertical = 3
 [node name="Node3D" type="Node3D" parent="level" unique_id=1512254005]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="level/Node3D" unique_id=1223871195]
-transform = Transform3D(2, 0, 0, 0, 0.5, 0, 0, 0, 5, 0, 0, 0)
+transform = Transform3D(6.830447, 0, 0, 0, 0.5, 0, 0, 0, 26.444674, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="level/Node3D/StaticBody3D" unique_id=1474949047]
 mesh = SubResource("BoxMesh_gxbh7")
@@ -69,17 +77,100 @@ mesh = SubResource("BoxMesh_gxbh7")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="level/Node3D/StaticBody3D" unique_id=409721629]
 shape = SubResource("BoxShape3D_vo8sw")
 
-[node name="Camera3D" type="Camera3D" parent="level/Node3D" unique_id=448799322]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="level/Node3D" unique_id=721147504]
 environment = SubResource("Environment_883nb")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="level/Node3D" unique_id=385083739]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+transform = Transform3D(-2.7231889, 0.9598599, 0.71429074, 0, -1.1083504, 2.4743757, -1.572234, -1.6625258, -1.2371877, 0, 0, 0)
 shadow_enabled = true
 
+[node name="StaticBody3D2" type="StaticBody3D" parent="level/Node3D" unique_id=2123086438]
+transform = Transform3D(-2.9856832e-07, -0.5, 0, 6.830447, -2.1855694e-08, 0, 0, 0, 26.444672, 3.2326207, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level/Node3D/StaticBody3D2" unique_id=1895906444]
+mesh = SubResource("BoxMesh_gxbh7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level/Node3D/StaticBody3D2" unique_id=1925961912]
+shape = SubResource("BoxShape3D_vo8sw")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="level/Node3D" unique_id=426754711]
+transform = Transform3D(-2.9856832e-07, -0.5, 0, 6.830447, -2.1855694e-08, 0, 0, 0, 26.444672, -3.1490798, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level/Node3D/StaticBody3D3" unique_id=1172703372]
+mesh = SubResource("BoxMesh_gxbh7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level/Node3D/StaticBody3D3" unique_id=162138328]
+shape = SubResource("BoxShape3D_vo8sw")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="level/Node3D" unique_id=177607500]
+transform = Transform3D(-1.1215787e-14, 2.1855694e-08, 6.8683763, 6.830447, -2.1855694e-08, 0, 2.9856832e-07, 0.5, -3.0022625e-07, 0.12161279, 0, -11.8022175)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level/Node3D/StaticBody3D4" unique_id=1222364798]
+mesh = SubResource("BoxMesh_gxbh7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level/Node3D/StaticBody3D4" unique_id=950209259]
+shape = SubResource("BoxShape3D_vo8sw")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="level/Node3D" unique_id=1724882738]
+transform = Transform3D(-1.1215787e-14, 2.1855694e-08, 6.8683763, 6.830447, -2.1855694e-08, 0, 2.9856832e-07, 0.5, -3.0022625e-07, 0.12161279, 0, 10.199059)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level/Node3D/StaticBody3D5" unique_id=2088418579]
+mesh = SubResource("BoxMesh_gxbh7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level/Node3D/StaticBody3D5" unique_id=1950738051]
+shape = SubResource("BoxShape3D_vo8sw")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="level/Node3D" unique_id=641870843]
+transform = Transform3D(6.830447, 0, 0, 0, 0.5, 0, 0, 0, 26.444674, 0, 2.6325145, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level/Node3D/StaticBody3D6" unique_id=413648728]
+mesh = SubResource("BoxMesh_gxbh7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level/Node3D/StaticBody3D6" unique_id=168459719]
+shape = SubResource("BoxShape3D_vo8sw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="level" unique_id=62706193]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.7600517, 0)
+
+[node name="cam" type="Node" parent="." unique_id=1509434419]
+
+[node name="controller" type="CharacterBody3D" parent="cam" unique_id=413647909]
+script = ExtResource("2_vo8sw")
+
+[node name="Camera3D" type="Camera3D" parent="cam/controller" unique_id=448799322]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cam/controller" unique_id=903154882]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+shape = SubResource("CapsuleShape3D_gxbh7")
+
+[node name="object" type="Node" parent="." unique_id=1861452181]
+
+[node name="TheOneRingObj" type="MeshInstance3D" parent="object" unique_id=836561364]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2.564887, 1.3174555, -0.37357044)
+mesh = ExtResource("4_7fmhn")
+
+[node name="Button" type="Button" parent="object/TheOneRingObj" unique_id=683797181]
+custom_minimum_size = Vector2(50, 50)
+offset_right = 50.0
+offset_bottom = 50.0
+script = ExtResource("5_mbk3n")
+
+[node name="Label" type="Label" parent="object/TheOneRingObj/Button" unique_id=563360290]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 28.0
+offset_right = 109.0
+offset_bottom = 51.0
+text = "Колечко Саурона на непонятном языке на нем."
+script = ExtResource("6_1ixuk")
+
+[connection signal="move_1" from="ui/zones" to="cam/controller" method="_on_zones_move_1"]
+[connection signal="move_2" from="ui/zones" to="cam/controller" method="_on_zones_move_2"]
+[connection signal="move_3" from="ui/zones" to="cam/controller" method="_on_zones_move_3"]
+[connection signal="move_4" from="ui/zones" to="cam/controller" method="_on_zones_move_4"]
 [connection signal="pressed" from="ui/zones/VBoxContainer/zone4" to="ui/zones" method="_on_zone_4_pressed"]
 [connection signal="pressed" from="ui/zones/VBoxContainer/zone3" to="ui/zones" method="_on_zone_3_pressed"]
 [connection signal="pressed" from="ui/zones/VBoxContainer/zone2" to="ui/zones" method="_on_zone_2_pressed"]
 [connection signal="pressed" from="ui/zones/VBoxContainer/zone1" to="ui/zones" method="_on_zone_1_pressed"]
+[connection signal="pressed" from="object/TheOneRingObj/Button" to="object/TheOneRingObj/Button/Label" method="_on_button_pressed"]
