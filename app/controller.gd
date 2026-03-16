@@ -2,15 +2,17 @@ extends CharacterBody3D
 
 
 func move_x(x) -> void:
-	position += -transform.basis.z * x
+	if Globals.view_is_active:
+		position += -transform.basis.z * x
 
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_pressed("RMB"):
-		if event is InputEventMouseMotion:
-			rotate_y(event.relative.x * Prototype.mouse_sense * 0.01)
-			$Camera3D.rotate_x(deg_to_rad(event.relative.y) * Prototype.mouse_sense * 0.01)
-			$Camera3D.rotation.x = clamp(rotation.x, deg_to_rad(-89), deg_to_rad(89))
+	if Globals.view_is_active:
+		if Input.is_action_pressed("RMB"):
+			if event is InputEventMouseMotion:
+				rotate_y(event.relative.x * Prototype.mouse_sense * 0.01)
+				$Camera3D.rotate_x(deg_to_rad(event.relative.y) * Prototype.mouse_sense * 0.01)
+				$Camera3D.rotation.x = clamp(rotation.x, deg_to_rad(-89), deg_to_rad(89))
 
 
 func _on_zones_move_1() -> void:

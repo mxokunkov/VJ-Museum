@@ -3,9 +3,14 @@
 [ext_resource type="Script" uid="uid://bxqgqymex14mt" path="res://prototype.gd" id="1_883nb"]
 [ext_resource type="Script" uid="uid://8ta1qhmv34ii" path="res://zones.gd" id="1_gxbh7"]
 [ext_resource type="Script" uid="uid://cow3pyybfi0o0" path="res://controller.gd" id="2_vo8sw"]
-[ext_resource type="ArrayMesh" uid="uid://t0i4o0fff6fv" path="res://The_One_Ring_Obj.obj" id="4_7fmhn"]
+[ext_resource type="ArrayMesh" uid="uid://bpm7pahvkvdqj" path="res://testring/testring.obj" id="4_h3f5w"]
+[ext_resource type="Script" uid="uid://davb4m1gfwon5" path="res://the_one_ring_obj.gd" id="5_8y2k3"]
 [ext_resource type="Script" uid="uid://dmhcgqh4no5lg" path="res://button.gd" id="5_mbk3n"]
+[ext_resource type="Texture2D" uid="uid://dwip2mgdvoqiw" path="res://testring/testring_Albedo.png" id="5_vm637"]
 [ext_resource type="Script" uid="uid://b3tmudmy0yu6n" path="res://label.gd" id="6_1ixuk"]
+[ext_resource type="Texture2D" uid="uid://bu8yjrky1352t" path="res://testring/testring_Metalness.png" id="6_h681u"]
+[ext_resource type="Texture2D" uid="uid://bb5vl4gsxgeak" path="res://testring/testring_Normal.png" id="7_67dyb"]
+[ext_resource type="Texture2D" uid="uid://dm8fvyulkyxct" path="res://testring/testring_Roughness.png" id="8_e13xq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gxbh7"]
 
@@ -24,6 +29,14 @@ sky = SubResource("Sky_vo8sw")
 tonemap_mode = 2
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gxbh7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0c7e4"]
+albedo_texture = ExtResource("5_vm637")
+metallic = 1.0
+metallic_texture = ExtResource("6_h681u")
+roughness_texture = ExtResource("8_e13xq")
+normal_enabled = true
+normal_texture = ExtResource("7_67dyb")
 
 [node name="prototype" type="Node" unique_id=1641901489]
 script = ExtResource("1_883nb")
@@ -148,7 +161,9 @@ shape = SubResource("CapsuleShape3D_gxbh7")
 
 [node name="TheOneRingObj" type="MeshInstance3D" parent="object" unique_id=836561364]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2.564887, 1.3174555, -0.37357044)
-mesh = ExtResource("4_7fmhn")
+mesh = ExtResource("4_h3f5w")
+surface_material_override/0 = SubResource("StandardMaterial3D_0c7e4")
+script = ExtResource("5_8y2k3")
 
 [node name="Button" type="Button" parent="object/TheOneRingObj" unique_id=683797181]
 custom_minimum_size = Vector2(50, 50)
@@ -156,13 +171,20 @@ offset_right = 50.0
 offset_bottom = 50.0
 script = ExtResource("5_mbk3n")
 
+[node name="Button2" type="Button" parent="object/TheOneRingObj/Button" unique_id=1682217990]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_top = 60.0
+offset_right = 50.0
+offset_bottom = 110.0
+
 [node name="Label" type="Label" parent="object/TheOneRingObj/Button" unique_id=563360290]
 layout_mode = 0
 offset_left = 69.0
 offset_top = 28.0
 offset_right = 109.0
 offset_bottom = 51.0
-text = "Колечко Саурона на непонятном языке на нем."
+text = "Колечко Саурона с текстом на непонятном языке на нем."
 script = ExtResource("6_1ixuk")
 
 [connection signal="move_1" from="ui/zones" to="cam/controller" method="_on_zones_move_1"]
@@ -174,3 +196,4 @@ script = ExtResource("6_1ixuk")
 [connection signal="pressed" from="ui/zones/VBoxContainer/zone2" to="ui/zones" method="_on_zone_2_pressed"]
 [connection signal="pressed" from="ui/zones/VBoxContainer/zone1" to="ui/zones" method="_on_zone_1_pressed"]
 [connection signal="pressed" from="object/TheOneRingObj/Button" to="object/TheOneRingObj/Button/Label" method="_on_button_pressed"]
+[connection signal="pressed" from="object/TheOneRingObj/Button/Button2" to="object/TheOneRingObj" method="_on_button_2_pressed"]
