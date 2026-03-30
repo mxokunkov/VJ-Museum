@@ -12,17 +12,30 @@ var zoom_speed := 0.1
 var min_scale := 0.3
 var max_scale := 3.0
 
+# Сохраняем исходные значения
+var initial_transform: Transform3D
+var initial_scale: Vector3
+
+func _ready():
+	# Сохраняем начальное положение и масштаб
+	initial_transform = transform
+	initial_scale = scale
+
 func start_inspect():
 	Globals.view_is_active = false
 	inspect_mode = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func stop_inspect():
+	# Возвращаем объект в исходное состояние
+	transform = initial_transform
+	scale = initial_scale
+	
 	Globals.view_is_active = true
 	inspect_mode = false
+	rotating = false  # Сбрасываем состояние вращения
 
 func _input(event):
-
 	if not inspect_mode:
 		return
 
