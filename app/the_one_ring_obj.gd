@@ -1,4 +1,4 @@
-extends MeshInstance3D
+extends Node3D
 
 #Объект должен возвращаться в первоначальное состояние!!!
 
