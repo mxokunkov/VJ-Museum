@@ -14,9 +14,9 @@
 ***
 ### 3D Пайплайн
 ***
-Blender: HP, LP, Baking
+Blender: HP/MP, PBR texturing, Baking
 
-Quixel: PBR texturing
+Quixel: PBR materials
 ***
 ### Выполненные задачи:
 ***
