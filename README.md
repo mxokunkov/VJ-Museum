@@ -1,6 +1,8 @@
 ***
 ### VJ-Museum
 Описание проекта. TBD
+
+[Google Drive](https://drive.google.com/drive/folders/1JrTN1RxPqrRlxEC6XA50aSw6n5KikhGR?usp=sharing)
 ***
 ### Роли
 ***
