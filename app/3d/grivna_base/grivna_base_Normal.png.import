@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm6kasd47hp4i"
+uid="uid://pu7uqgug2703"
 path.s3tc="res://.godot/imported/grivna_base_Normal.png-e261bdcb022cfb1fb27840b886d6b243.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
@@ -27,7 +27,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://3d/grivna_base/grivna_base_Normal.png"
+roughness/src_normal="res://3d/grivna_base/base_2/grivna_base/grivna_base_Normal.png"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

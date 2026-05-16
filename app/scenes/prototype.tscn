@@ -1,0 +1,233 @@
+[gd_scene format=3 uid="uid://b8t5isb6ryr8r"]
+
+[ext_resource type="PackedScene" uid="uid://bk50pu8iohlci" path="res://scenes/level.tscn" id="2_jmxw3"]
+[ext_resource type="Script" uid="uid://8ta1qhmv34ii" path="res://scripts/zones.gd" id="2_whm2p"]
+[ext_resource type="Script" uid="uid://cow3pyybfi0o0" path="res://scripts/controller.gd" id="3_tx354"]
+[ext_resource type="PackedScene" uid="uid://bwyt0aeg2luw3" path="res://scenes/grivna.tscn" id="4_xw5o4"]
+[ext_resource type="Script" uid="uid://dmhcgqh4no5lg" path="res://scripts/button.gd" id="5_5w0st"]
+[ext_resource type="Script" uid="uid://briiof7r6tbbf" path="res://scripts/grivna.gd" id="5_whm2p"]
+[ext_resource type="Script" uid="uid://b3tmudmy0yu6n" path="res://scripts/label.gd" id="6_v5kwg"]
+[ext_resource type="ArrayMesh" uid="uid://dfyf2ih4grua1" path="res://3d/vitrina.obj" id="8_tx354"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gxbh7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gxbh7"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_vo8sw"]
+sky_material = SubResource("ProceduralSkyMaterial_gxbh7")
+
+[sub_resource type="Environment" id="Environment_883nb"]
+background_mode = 2
+sky = SubResource("Sky_vo8sw")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xw5o4"]
+transparency = 1
+albedo_color = Color(0.3529412, 0.3529412, 0.3529412, 0.54901963)
+
+[node name="prototype" type="Node" unique_id=1641901489]
+
+[node name="ui" type="Node" parent="." unique_id=1670755777]
+
+[node name="zones" type="Control" parent="ui" unique_id=594648359]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_whm2p")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ui/zones" unique_id=643730925]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="zone4" type="Button" parent="ui/zones/VBoxContainer" unique_id=1273592937]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="zone3" type="Button" parent="ui/zones/VBoxContainer" unique_id=1564826337]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="zone2" type="Button" parent="ui/zones/VBoxContainer" unique_id=111412921]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="zone1" type="Button" parent="ui/zones/VBoxContainer" unique_id=1023026823]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="level" type="Node" parent="." unique_id=6728732]
+
+[node name="level" parent="level" unique_id=1012456205 instance=ExtResource("2_jmxw3")]
+
+[node name="controller" type="Node" parent="." unique_id=1509434419]
+
+[node name="controller" type="CharacterBody3D" parent="controller" unique_id=413647909]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.242477, 0)
+script = ExtResource("3_tx354")
+
+[node name="Camera3D" type="Camera3D" parent="controller/controller" unique_id=448799322]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="controller/controller" unique_id=903154882]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+shape = SubResource("CapsuleShape3D_gxbh7")
+
+[node name="object" type="Node" parent="." unique_id=1861452181]
+
+[node name="Grivna" parent="object" unique_id=429068323 instance=ExtResource("4_xw5o4")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -7.8520365, -1.0270611, -6.283114)
+script = ExtResource("5_whm2p")
+
+[node name="Button" type="Button" parent="object/Grivna" unique_id=683797181]
+custom_minimum_size = Vector2(50, 50)
+offset_right = 50.0
+offset_bottom = 50.0
+script = ExtResource("5_5w0st")
+
+[node name="Button2" type="Button" parent="object/Grivna/Button" unique_id=1682217990]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_top = 60.0
+offset_right = 50.0
+offset_bottom = 110.0
+
+[node name="Label" type="Label" parent="object/Grivna/Button" unique_id=563360290]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 28.0
+offset_right = 109.0
+offset_bottom = 51.0
+text = "Колье-гривна.
+Начало XX века, неизвестный мастер, Индия, Нагаланд.
+Колье имеет форму обруча, выполненного методом отливки. К нижней части обруча прикреплены 11 литых пластин в виде человеческих лиц.
+Материал и техника:
+Бронза. Ручная работа, литьё, ковка, патинирование, пайка."
+script = ExtResource("6_v5kwg")
+
+[node name="Grivna2" parent="object" unique_id=526963371 instance=ExtResource("4_xw5o4")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -7.8520365, -1.0270611, -10.2831135)
+script = ExtResource("5_whm2p")
+
+[node name="Button" type="Button" parent="object/Grivna2" unique_id=768409838]
+custom_minimum_size = Vector2(50, 50)
+offset_right = 50.0
+offset_bottom = 50.0
+script = ExtResource("5_5w0st")
+
+[node name="Button2" type="Button" parent="object/Grivna2/Button" unique_id=266138955]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_top = 60.0
+offset_right = 50.0
+offset_bottom = 110.0
+
+[node name="Label" type="Label" parent="object/Grivna2/Button" unique_id=194412802]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 28.0
+offset_right = 109.0
+offset_bottom = 51.0
+text = "Колье-гривна.
+Начало XX века, неизвестный мастер, Индия, Нагаланд.
+Колье имеет форму обруча, выполненного методом отливки. К нижней части обруча прикреплены 11 литых пластин в виде человеческих лиц.
+Материал и техника:
+Бронза. Ручная работа, литьё, ковка, патинирование, пайка."
+script = ExtResource("6_v5kwg")
+
+[node name="Grivna3" parent="object" unique_id=875944872 instance=ExtResource("4_xw5o4")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -7.8520365, -1.0270611, -14.2831135)
+script = ExtResource("5_whm2p")
+
+[node name="Button" type="Button" parent="object/Grivna3" unique_id=1681348459]
+custom_minimum_size = Vector2(50, 50)
+offset_right = 50.0
+offset_bottom = 50.0
+script = ExtResource("5_5w0st")
+
+[node name="Button2" type="Button" parent="object/Grivna3/Button" unique_id=865691660]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_top = 60.0
+offset_right = 50.0
+offset_bottom = 110.0
+
+[node name="Label" type="Label" parent="object/Grivna3/Button" unique_id=1388726422]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 28.0
+offset_right = 109.0
+offset_bottom = 51.0
+text = "Колье-гривна.
+Начало XX века, неизвестный мастер, Индия, Нагаланд.
+Колье имеет форму обруча, выполненного методом отливки. К нижней части обруча прикреплены 11 литых пластин в виде человеческих лиц.
+Материал и техника:
+Бронза. Ручная работа, литьё, ковка, патинирование, пайка."
+script = ExtResource("6_v5kwg")
+
+[node name="env" type="Node" parent="." unique_id=1975220785]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="env" unique_id=721147504]
+environment = SubResource("Environment_883nb")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="env" unique_id=522676996]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="env" unique_id=668394696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.1959624, -10)
+light_energy = 5.162
+distance_fade_enabled = true
+omni_range = 11.523435
+
+[node name="Vitrina" type="MeshInstance3D" parent="." unique_id=625836689]
+transform = Transform3D(-2.1855695e-07, 0, 1.098, 0, 2.234, 0, -5, 0, -4.7995105e-08, -7.738778, -1.5803136, -6.2241163)
+mesh = ExtResource("8_tx354")
+surface_material_override/0 = SubResource("StandardMaterial3D_xw5o4")
+
+[node name="Vitrina2" type="MeshInstance3D" parent="." unique_id=1950510189]
+transform = Transform3D(-2.1855695e-07, 0, 1.098, 0, 2.234, 0, -5, 0, -4.7995105e-08, -7.738778, -1.5803136, -10.111456)
+mesh = ExtResource("8_tx354")
+surface_material_override/0 = SubResource("StandardMaterial3D_xw5o4")
+
+[node name="Vitrina3" type="MeshInstance3D" parent="." unique_id=1071248211]
+transform = Transform3D(-2.1855695e-07, 0, 1.098, 0, 2.234, 0, -5, 0, -4.7995105e-08, -7.738778, -1.5803136, -14.031574)
+mesh = ExtResource("8_tx354")
+surface_material_override/0 = SubResource("StandardMaterial3D_xw5o4")
+
+[node name="Vitrina4" type="MeshInstance3D" parent="." unique_id=2117870977]
+transform = Transform3D(6.556709e-07, 0, -1.098, 0, 2.234, 0, 4.9999995, 0, 1.439853e-07, -1.6916673, -1.5803136, -14.020648)
+mesh = ExtResource("8_tx354")
+surface_material_override/0 = SubResource("StandardMaterial3D_xw5o4")
+
+[node name="Vitrina5" type="MeshInstance3D" parent="." unique_id=884443528]
+transform = Transform3D(6.556709e-07, 0, -1.098, 0, 2.234, 0, 4.9999995, 0, 1.439853e-07, -1.6916668, -1.5803136, -10.133308)
+mesh = ExtResource("8_tx354")
+surface_material_override/0 = SubResource("StandardMaterial3D_xw5o4")
+
+[node name="Vitrina6" type="MeshInstance3D" parent="." unique_id=701131428]
+transform = Transform3D(6.556709e-07, 0, -1.098, 0, 2.234, 0, 4.9999995, 0, 1.439853e-07, -1.6916664, -1.5803136, -6.21319)
+mesh = ExtResource("8_tx354")
+surface_material_override/0 = SubResource("StandardMaterial3D_xw5o4")
+
+[connection signal="move_1" from="ui/zones" to="controller/controller" method="_on_zones_move_1"]
+[connection signal="move_2" from="ui/zones" to="controller/controller" method="_on_zones_move_2"]
+[connection signal="move_3" from="ui/zones" to="controller/controller" method="_on_zones_move_3"]
+[connection signal="move_4" from="ui/zones" to="controller/controller" method="_on_zones_move_4"]
+[connection signal="pressed" from="ui/zones/VBoxContainer/zone4" to="ui/zones" method="_on_zone_4_pressed"]
+[connection signal="pressed" from="ui/zones/VBoxContainer/zone3" to="ui/zones" method="_on_zone_3_pressed"]
+[connection signal="pressed" from="ui/zones/VBoxContainer/zone2" to="ui/zones" method="_on_zone_2_pressed"]
+[connection signal="pressed" from="ui/zones/VBoxContainer/zone1" to="ui/zones" method="_on_zone_1_pressed"]
+[connection signal="pressed" from="object/Grivna/Button" to="object/Grivna/Button/Label" method="_on_button_pressed"]
+[connection signal="pressed" from="object/Grivna/Button/Button2" to="object/Grivna" method="_on_button_2_pressed"]
+[connection signal="pressed" from="object/Grivna2/Button" to="object/Grivna2/Button/Label" method="_on_button_pressed"]
+[connection signal="pressed" from="object/Grivna2/Button/Button2" to="object/Grivna2" method="_on_button_2_pressed"]
+[connection signal="pressed" from="object/Grivna3/Button" to="object/Grivna3/Button/Label" method="_on_button_pressed"]
+[connection signal="pressed" from="object/Grivna3/Button/Button2" to="object/Grivna3" method="_on_button_2_pressed"]

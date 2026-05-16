@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://bwyt0aeg2luw3"]
+
+[ext_resource type="ArrayMesh" uid="uid://tuxo6d5sf7qv" path="res://3d/grivna_base/grivna_base.obj" id="1_nrnrf"]
+[ext_resource type="Texture2D" uid="uid://m7jac0p3ruac" path="res://3d/grivna_base/grivna_base_Albedo.png" id="2_nrnrf"]
+[ext_resource type="Texture2D" uid="uid://c1d52wch0o0vu" path="res://3d/grivna_base/grivna_base_Metalness.png" id="5_2kc88"]
+[ext_resource type="Texture2D" uid="uid://pu7uqgug2703" path="res://3d/grivna_base/grivna_base_Normal.png" id="6_cy5at"]
+[ext_resource type="Texture2D" uid="uid://h51okw0m04ng" path="res://3d/grivna_base/grivna_base_Roughness.png" id="7_gdvyk"]
+[ext_resource type="ArrayMesh" uid="uid://cxksv5vllid3r" path="res://3d/grivna/grivna_head_v.obj" id="8_2n3bc"]
+[ext_resource type="Texture2D" uid="uid://ycl05ip3365j" path="res://3d/grivna/grivna_Albedo.png" id="9_luq4r"]
+[ext_resource type="Texture2D" uid="uid://c0rl4aqwbfutl" path="res://3d/grivna/grivna_AO.png" id="10_idygd"]
+[ext_resource type="Texture2D" uid="uid://u16r2827ycrn" path="res://3d/grivna/grivna_Metalness.png" id="11_pgdbe"]
+[ext_resource type="Texture2D" uid="uid://dpt1ho1gtavf3" path="res://3d/grivna/grivna_Normal.png" id="12_epvgb"]
+[ext_resource type="Texture2D" uid="uid://ds5qn6bw64pmo" path="res://3d/grivna/grivna_Roughness.png" id="13_52ytn"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8oej2"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x250x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6e5xr"]
+albedo_texture = ExtResource("2_nrnrf")
+metallic = 1.0
+metallic_texture = ExtResource("5_2kc88")
+roughness_texture = ExtResource("7_gdvyk")
+normal_enabled = true
+normal_texture = ExtResource("6_cy5at")
+ao_enabled = true
+ao_texture = SubResource("CompressedTexture2D_8oej2")
+heightmap_texture = SubResource("CompressedTexture2D_x250x")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mysey"]
+albedo_texture = ExtResource("9_luq4r")
+metallic = 1.0
+metallic_texture = ExtResource("11_pgdbe")
+roughness_texture = ExtResource("13_52ytn")
+normal_enabled = true
+normal_texture = ExtResource("12_epvgb")
+ao_enabled = true
+ao_texture = ExtResource("10_idygd")
+
+[node name="Grivna" type="Node3D" unique_id=429068323]
+
+[node name="GrivnaBase" type="MeshInstance3D" parent="." unique_id=2115789539]
+mesh = ExtResource("1_nrnrf")
+surface_material_override/0 = SubResource("StandardMaterial3D_6e5xr")
+
+[node name="GrivnaHeadV" type="MeshInstance3D" parent="." unique_id=723365898]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6427514e-05, 0.00018167496, 4.74602e-05)
+mesh = ExtResource("8_2n3bc")
+surface_material_override/0 = SubResource("StandardMaterial3D_mysey")
+
+[node name="GrivnaHeadV2" type="MeshInstance3D" parent="." unique_id=853236252]
+transform = Transform3D(1, 0, 0, 0, 0.9524118, -0.30481446, 0, 0.30481446, 0.9524118, 6.6427514e-05, 0.00087992474, -0.0048697367)
+mesh = ExtResource("8_2n3bc")
+surface_material_override/0 = SubResource("StandardMaterial3D_mysey")
+
+[node name="GrivnaHeadV3" type="MeshInstance3D" parent="." unique_id=1320866452]
+transform = Transform3D(1, 0, 0, 0, 0.7898982, -0.613238, 0, 0.613238, 0.7898982, 6.6427514e-05, -0.0013823844, -0.0065150484)
+mesh = ExtResource("8_2n3bc")
+surface_material_override/0 = SubResource("StandardMaterial3D_mysey")
+
+[node name="GrivnaHeadV4" type="MeshInstance3D" parent="." unique_id=561811302]
+transform = Transform3D(1, 0, 0, 0, 0.662084, -0.7494298, 0, 0.7494298, 0.662084, 6.6427514e-05, 0.0066385325, -0.01700392)
+mesh = ExtResource("8_2n3bc")
+surface_material_override/0 = SubResource("StandardMaterial3D_mysey")
+
+[node name="GrivnaHeadV5" type="MeshInstance3D" parent="." unique_id=402888397]
+transform = Transform3D(1, 0, 0, 0, 0.44469774, -0.89568084, 0, 0.89568084, 0.44469774, 6.6427514e-05, 0.01342546, -0.020911537)
+mesh = ExtResource("8_2n3bc")
+surface_material_override/0 = SubResource("StandardMaterial3D_mysey")
+
+[node name="GrivnaHeadV6" type="MeshInstance3D" parent="." unique_id=535346799]
+transform = Transform3D(1, 0, 0, 0, 0.21354192, -0.976934, 0, 0.976934, 0.21354192, 6.6427514e-05, 0.021035038, -0.021734178)
+mesh = ExtResource("8_2n3bc")
+surface_material_override/0 = SubResource("StandardMaterial3D_mysey")
+
+[node name="GrivnaHeadV7" type="MeshInstance3D" parent="." unique_id=116795415]
+transform = Transform3D(1, 0, 0, 0, 0.95788264, 0.28715992, 0, -0.28715992, 0.95788264, 6.6427514e-05, 0.0035400912, 0.0032108948)
+mesh = ExtResource("8_2n3bc")
+surface_material_override/0 = SubResource("StandardMaterial3D_mysey")
+
+[node name="GrivnaHeadV8" type="MeshInstance3D" parent="." unique_id=89839851]
+transform = Transform3D(1, 0, 0, 0, 0.8820611, 0.4711351, 0, -0.4711351, 0.8820611, 6.6427514e-05, 0.008097939, 0.0147254765)
+mesh = ExtResource("8_2n3bc")
+surface_material_override/0 = SubResource("StandardMaterial3D_mysey")
+
+[node name="GrivnaHeadV9" type="MeshInstance3D" parent="." unique_id=1213696833]
+transform = Transform3D(1, 0, 0, 0, 0.7122343, 0.7019418, 0, -0.7019418, 0.7122343, 6.6427514e-05, 0.012794323, 0.018872976)
+mesh = ExtResource("8_2n3bc")
+surface_material_override/0 = SubResource("StandardMaterial3D_mysey")
+
+[node name="GrivnaHeadV10" type="MeshInstance3D" parent="." unique_id=1109749356]
+transform = Transform3D(1, 0, 0, 0, 0.45722207, 0.88935256, 0, -0.88935256, 0.45722207, 6.6427514e-05, 0.013822649, 0.020723946)
+mesh = ExtResource("8_2n3bc")
+surface_material_override/0 = SubResource("StandardMaterial3D_mysey")
+
+[node name="GrivnaHeadV11" type="MeshInstance3D" parent="." unique_id=1713572275]
+transform = Transform3D(1, 0, 0, 0, 0.09966704, 0.99502087, 0, -0.99502087, 0.09966704, 6.6427514e-05, 0.011766002, 0.020312622)
+mesh = ExtResource("8_2n3bc")
+surface_material_override/0 = SubResource("StandardMaterial3D_mysey")

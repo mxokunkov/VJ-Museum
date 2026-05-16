@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bk50pu8iohlci"]
+
+[ext_resource type="ArrayMesh" uid="uid://cq2ww2dl3a02s" path="res://3d/VJM-place/VJM-place.obj" id="1_w7c3h"]
+[ext_resource type="Texture2D" uid="uid://3qvrbya4i1lc" path="res://3d/VJM-place/VJM-place-albedo-2k.png" id="2_w8frs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mx8sn"]
+albedo_texture = ExtResource("2_w8frs")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ppgk2"]
+albedo_texture = ExtResource("2_w8frs")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w7c3h"]
+size = Vector3(1, 1.0587158, 1)
+
+[node name="level" type="Node3D" unique_id=1012456205]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=455761180]
+
+[node name="VjmPlace" type="MeshInstance3D" parent="StaticBody3D" unique_id=1817864879]
+mesh = ExtResource("1_w7c3h")
+surface_material_override/0 = SubResource("StandardMaterial3D_mx8sn")
+surface_material_override/1 = SubResource("StandardMaterial3D_ppgk2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=109735893]
+transform = Transform3D(38.08, 0, 0, 0, 1, 0, 0, 0, 31.570004, 0, -3.529946, 0)
+shape = SubResource("BoxShape3D_w7c3h")
