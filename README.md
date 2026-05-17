@@ -1,8 +1,6 @@
 ***
 ### VJ-Museum
 Описание проекта. TBD
-
-[Google Drive](https://drive.google.com/drive/folders/1JrTN1RxPqrRlxEC6XA50aSw6n5KikhGR?usp=sharing)
 ***
 ### Роли
 ***
@@ -16,9 +14,9 @@
 ***
 ### 3D Пайплайн
 ***
-Blender: HP/MP, PBR texturing, Baking
+Blender: HP, LP, Baking
 
-Quixel: PBR materials
+Quixel: PBR texturing
 ***
 ### Выполненные задачи:
 ***
